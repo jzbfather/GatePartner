@@ -3,9 +3,10 @@
 GatePartner is an application that allows you to send and receive hundreds of your SMS or E-mail. Flexible, it's functionalities integrates perfectly with your applications of type Java, PHP, Python, etc ...
 
 
-*Requirements
+*Developments
 
-Oracle 10.0.2.xx or higher
+tested, and developed on Oracle 10.0.xx or higher
+If you have made changes to the core you think might benefit others please let us know about them.
 
 *Functionalities
 
@@ -13,5 +14,8 @@ Oracle 10.0.2.xx or higher
 - Message priorities
 - Receiving Messages
 - Email sending function
+
+Installing
+
 
 
