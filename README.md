@@ -13,7 +13,7 @@ Functionalities
 - Message Sending
 - Message priorities
 - Receiving Messages
-- Email sending function
+- Email sending
 
 Installing
 
