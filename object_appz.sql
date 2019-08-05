@@ -1,4 +1,4 @@
-create or replace PROCEDURE POSTMAN 
+create or replace PROCEDURE  POSTMAN 
 AS 
 
 r INT :=0;
@@ -29,12 +29,12 @@ BEGIN
   -- ************************************** --
   
 
-  FOR pu1 IN ( SELECT id, receiver, msg, operator FROM gatepartner.inbox WHERE msgtype = 'SMS'
+    FOR pu1 IN ( SELECT id, receiver, msg, operator FROM gatepartner.inbox WHERE msgtype = 'SMS'
              AND status= 'send' AND ROWNUM <= config_list('sms-batch') )
 
-  LOOP
+	LOOP
 
-        func := pu1.operator;
+        func := config_list(pu1.operator);
         
         plsql_block := 'BEGIN  :v := ' || func || '(:v1, :v2); END;';
         
@@ -56,15 +56,38 @@ BEGIN
 		END IF;
 
 
-  END LOOP;
+	END LOOP;
 
 
 
   -- ************************************** --
-  -- E-mail management                      --
+  -- Email management                         --
   -- ************************************** --
 
 
+    FOR pu1 IN ( SELECT id, sender, sender_name, receiver, msg, subject, attach, operator FROM gatepartner.inbox 
+                    WHERE msgtype = 'EMAIL' AND status= 'send' AND ROWNUM <= config_list('mail-batch') )
+    LOOP 
+    
+        r := send_mail( 
+                pu1.receiver,
+                pu1.sender, 
+                pu1.sender_name, 
+                pu1.subject, 
+                pu1.msg, 
+                pu1.operator,
+                pu1.attach
+        );   
+        
+        
+     IF ( r = 1 ) THEN
+     
+      UPDATE gatepartner.inbox SET status = 'sent', senttime= TO_CHAR ( SYSDATE, 'DD/MM/YYYY HH24:MI:SS' )
+        WHERE id = pu1.id;
+     
+     END IF;
+    
+    END LOOP;
 
 
 END;
