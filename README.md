@@ -32,31 +32,21 @@ Verify the grant :
     grant execute, select, read  ... to schema
 
 Send a SMS :
+configure the fonction operator to send your sms
 
-    configure the fonction operator to send your sms 
-    INSERT INTO gatepartner.config (CNF_NAME, CNF_VALUE) VALUES ('francecom', 'schema.function')
+    INSERT INTO gatepartner.config (CNF_NAME, CNF_VALUE) VALUES ('francecom', 'schema.function')    
 
     GRANT EXECUTE ON schema.function TO gatepartner 
 
-    Function to deliver sms by your application 
+To deliver sms by your application
+
     gatepartner.deposit_sms(
 	'Ecommerce', -- Persone who sending
-	'+243000003269', -- Personne who will be recivied
-	'Bonjour, Nous somme heureux.', -- Message to be recevied
+	'+243000003269', -- Personne who receives
+	'Bonjour, Nous somme heureux.', -- Message to be received
 	'30074015', -- Reference of message
-	'francecom' -- operator who received the message to send 
+	'francecom' -- operator use to send message
 	);
 
 
-
-
-
-
-
-
- 
-
-
-    object_create.sql 'storage information'
-    object_create.sql 'storage information'
 
