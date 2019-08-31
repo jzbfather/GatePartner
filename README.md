@@ -5,8 +5,8 @@ GatePartner is an application that allows you to send and receive hundreds of yo
 
 Developments
 ===========
-tested, and developed on Oracle 10.0.xx or higher
-If you have made changes to the core you think might benefit others please let us know about them.
+Tested, and developed on Oracle 10.0.xx or higher
+If you have made some changes to the core and you think might benefit others, please let us know about them by making a pull request.
 
 Functionalities
 ==============
