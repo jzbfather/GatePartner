@@ -8,7 +8,7 @@ func VARCHAR2(50);
 plsql_block VARCHAR2(500);
 
 
-config_list intranet.jzb_common_utility.TypeTabArray;
+config_list gatepartner.jzb_common.TypeTabArray;
 
 CURSOR ini_param IS select cnf_name,cnf_value from config;
 
