@@ -1,4 +1,4 @@
-create or replace PACKAGE jzb_common_utility IS 
+create or replace PACKAGE jzb_common IS 
   TYPE TypeTabArray IS TABLE OF VARCHAR2(3200) INDEX BY VARCHAR2(50);
   
   -- Convert timestand to date 
@@ -13,7 +13,7 @@ create or replace PACKAGE jzb_common_utility IS
 END;
 /
 
-create or replace PACKAGE BODY jzb_common_utility IS 
+create or replace PACKAGE BODY jzb_common IS 
   
   -- Convert timestand to date 
   FUNCTION convert_ts_to_date( p_ts IN NUMBER ) RETURN DATE IS
